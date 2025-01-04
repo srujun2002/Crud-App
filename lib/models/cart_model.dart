@@ -7,7 +7,7 @@ part 'cart_model.g.dart';
 @freezed
 class Cart with _$Cart {
   factory Cart({
-    required String userId,
+    required int userId,
     required List<CartMetadata> products,
   }) = _Cart;
 

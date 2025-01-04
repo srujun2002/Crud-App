@@ -1,4 +1,5 @@
 import 'package:assesment/extensions/async_widget.dart';
+import 'package:assesment/feature/cart/cart_page.dart';
 import 'package:assesment/feature/category/category_product_view.dart';
 import 'package:assesment/feature/category/provider/category_provider.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,19 @@ class CategoryPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Category')),
+        appBar: AppBar(
+          title: const Text('Category'),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.shopping_cart),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CartPage();
+                }));
+              },
+            )
+          ],
+        ),
         body: AsyncWidget(
             value: ref.watch(categoryProvider),
             data: (data) {

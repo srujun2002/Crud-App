@@ -20,7 +20,7 @@ Cart _$CartFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Cart {
-  String get userId => throw _privateConstructorUsedError;
+  int get userId => throw _privateConstructorUsedError;
   List<CartMetadata> get products => throw _privateConstructorUsedError;
 
   /// Serializes this Cart to a JSON map.
@@ -37,7 +37,7 @@ abstract class $CartCopyWith<$Res> {
   factory $CartCopyWith(Cart value, $Res Function(Cart) then) =
       _$CartCopyWithImpl<$Res, Cart>;
   @useResult
-  $Res call({String userId, List<CartMetadata> products});
+  $Res call({int userId, List<CartMetadata> products});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$CartCopyWithImpl<$Res, $Val extends Cart>
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
@@ -78,7 +78,7 @@ abstract class _$$CartImplCopyWith<$Res> implements $CartCopyWith<$Res> {
       __$$CartImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String userId, List<CartMetadata> products});
+  $Res call({int userId, List<CartMetadata> products});
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class __$$CartImplCopyWithImpl<$Res>
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ class _$CartImpl implements _Cart {
       _$$CartImplFromJson(json);
 
   @override
-  final String userId;
+  final int userId;
   final List<CartMetadata> _products;
   @override
   List<CartMetadata> get products {
@@ -165,13 +165,13 @@ class _$CartImpl implements _Cart {
 
 abstract class _Cart implements Cart {
   factory _Cart(
-      {required final String userId,
+      {required final int userId,
       required final List<CartMetadata> products}) = _$CartImpl;
 
   factory _Cart.fromJson(Map<String, dynamic> json) = _$CartImpl.fromJson;
 
   @override
-  String get userId;
+  int get userId;
   @override
   List<CartMetadata> get products;
 
