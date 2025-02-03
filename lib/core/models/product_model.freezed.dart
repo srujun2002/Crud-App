@@ -20,13 +20,13 @@ Product _$ProductFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Product {
+  @JsonKey(name: 'id', includeFromJson: true, includeToJson: false)
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  num get price => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get image => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  ProductRating? get rating => throw _privateConstructorUsedError;
 
   /// Serializes this Product to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,15 +43,12 @@ abstract class $ProductCopyWith<$Res> {
       _$ProductCopyWithImpl<$Res, Product>;
   @useResult
   $Res call(
-      {int id,
+      {@JsonKey(name: 'id', includeFromJson: true, includeToJson: false) int id,
       String title,
-      num price,
-      String? description,
-      String category,
-      String? image,
-      ProductRating? rating});
-
-  $ProductRatingCopyWith<$Res>? get rating;
+      double price,
+      String description,
+      String image,
+      String category});
 }
 
 /// @nodoc
@@ -72,10 +69,9 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? id = null,
     Object? title = null,
     Object? price = null,
-    Object? description = freezed,
+    Object? description = null,
+    Object? image = null,
     Object? category = null,
-    Object? image = freezed,
-    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -89,38 +85,20 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as num,
-      description: freezed == description
+              as double,
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as ProductRating?,
     ) as $Val);
-  }
-
-  /// Create a copy of Product
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductRatingCopyWith<$Res>? get rating {
-    if (_value.rating == null) {
-      return null;
-    }
-
-    return $ProductRatingCopyWith<$Res>(_value.rating!, (value) {
-      return _then(_value.copyWith(rating: value) as $Val);
-    });
   }
 }
 
@@ -132,16 +110,12 @@ abstract class _$$ProductImplCopyWith<$Res> implements $ProductCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {@JsonKey(name: 'id', includeFromJson: true, includeToJson: false) int id,
       String title,
-      num price,
-      String? description,
-      String category,
-      String? image,
-      ProductRating? rating});
-
-  @override
-  $ProductRatingCopyWith<$Res>? get rating;
+      double price,
+      String description,
+      String image,
+      String category});
 }
 
 /// @nodoc
@@ -160,10 +134,9 @@ class __$$ProductImplCopyWithImpl<$Res>
     Object? id = null,
     Object? title = null,
     Object? price = null,
-    Object? description = freezed,
+    Object? description = null,
+    Object? image = null,
     Object? category = null,
-    Object? image = freezed,
-    Object? rating = freezed,
   }) {
     return _then(_$ProductImpl(
       id: null == id
@@ -177,23 +150,19 @@ class __$$ProductImplCopyWithImpl<$Res>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as num,
-      description: freezed == description
+              as double,
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      image: null == image
+          ? _value.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as String,
       category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as ProductRating?,
     ));
   }
 }
@@ -201,36 +170,35 @@ class __$$ProductImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ProductImpl implements _Product {
-  _$ProductImpl(
-      {required this.id,
+  const _$ProductImpl(
+      {@JsonKey(name: 'id', includeFromJson: true, includeToJson: false)
+      required this.id,
       required this.title,
       required this.price,
-      this.description,
-      required this.category,
-      this.image,
-      this.rating});
+      required this.description,
+      required this.image,
+      required this.category});
 
   factory _$ProductImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductImplFromJson(json);
 
   @override
+  @JsonKey(name: 'id', includeFromJson: true, includeToJson: false)
   final int id;
   @override
   final String title;
   @override
-  final num price;
+  final double price;
   @override
-  final String? description;
+  final String description;
+  @override
+  final String image;
   @override
   final String category;
-  @override
-  final String? image;
-  @override
-  final ProductRating? rating;
 
   @override
   String toString() {
-    return 'Product(id: $id, title: $title, price: $price, description: $description, category: $category, image: $image, rating: $rating)';
+    return 'Product(id: $id, title: $title, price: $price, description: $description, image: $image, category: $category)';
   }
 
   @override
@@ -243,16 +211,15 @@ class _$ProductImpl implements _Product {
             (identical(other.price, price) || other.price == price) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
             (identical(other.image, image) || other.image == image) &&
-            (identical(other.rating, rating) || other.rating == rating));
+            (identical(other.category, category) ||
+                other.category == category));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, title, price, description, category, image, rating);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, price, description, image, category);
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.
@@ -271,31 +238,30 @@ class _$ProductImpl implements _Product {
 }
 
 abstract class _Product implements Product {
-  factory _Product(
-      {required final int id,
+  const factory _Product(
+      {@JsonKey(name: 'id', includeFromJson: true, includeToJson: false)
+      required final int id,
       required final String title,
-      required final num price,
-      final String? description,
-      required final String category,
-      final String? image,
-      final ProductRating? rating}) = _$ProductImpl;
+      required final double price,
+      required final String description,
+      required final String image,
+      required final String category}) = _$ProductImpl;
 
   factory _Product.fromJson(Map<String, dynamic> json) = _$ProductImpl.fromJson;
 
   @override
+  @JsonKey(name: 'id', includeFromJson: true, includeToJson: false)
   int get id;
   @override
   String get title;
   @override
-  num get price;
+  double get price;
   @override
-  String? get description;
+  String get description;
+  @override
+  String get image;
   @override
   String get category;
-  @override
-  String? get image;
-  @override
-  ProductRating? get rating;
 
   /// Create a copy of Product
   /// with the given fields replaced by the non-null parameter values.

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'category_repo.dart';
+part of 'product_repository.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,33 +8,34 @@ part of 'category_repo.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element
 
-class _CategoryRepository implements CategoryRepository {
-  _CategoryRepository(
+class _ProductRepository implements ProductRepository {
+  _ProductRepository(
     this._dio, {
     this.baseUrl,
-    this.errorLogger,
+    // this.errorLogger,
   });
 
   final Dio _dio;
 
   String? baseUrl;
 
-  final ParseErrorLogger? errorLogger;
+  // final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<String>> list() async {
+  Future<Product> create(Product product) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<String>>(Options(
-      method: 'GET',
+    final _data = <String, dynamic>{};
+    _data.addAll(product.toJson());
+    final _options = _setStreamType<Product>(Options(
+      method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          'https://fakestoreapi.com/products/categories',
+          'https://fakestoreapi.com/products',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -43,25 +44,29 @@ class _CategoryRepository implements CategoryRepository {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<String> _value;
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late Product _value;
     try {
-      _value = _result.data!.cast<String>();
+      _value = Product.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      // errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
   }
 
   @override
-  Future<Product> getProduct(int id) async {
+  Future<Product> update(
+    int id,
+    Product product,
+  ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = <String, dynamic>{};
+    _data.addAll(product.toJson());
     final _options = _setStreamType<Product>(Options(
-      method: 'GET',
+      method: 'PUT',
       headers: _headers,
       extra: _extra,
     )
@@ -81,14 +86,14 @@ class _CategoryRepository implements CategoryRepository {
     try {
       _value = Product.fromJson(_result.data!);
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      // errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
   }
 
   @override
-  Future<List<Product>> listProduct() async {
+  Future<List<Product>> getProducts() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -116,7 +121,7 @@ class _CategoryRepository implements CategoryRepository {
           .map((dynamic i) => Product.fromJson(i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
+      // errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
