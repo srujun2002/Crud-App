@@ -53,7 +53,7 @@ class WriteProduct extends _$WriteProduct {
 
       var updated = state.product;
 
-      if (product!.id == 0) {
+      if (product?.id == null) {
         return _repository.create(updated);
       } else {
         return _repository.update(product!.id, updated);
